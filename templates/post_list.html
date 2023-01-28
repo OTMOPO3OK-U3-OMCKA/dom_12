@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Все посты найденные по запросу "Кот и Хлеб"</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+<main>
+<form action="/search">
+    <a href="/" class="link">Назад</a>
+
+    <h1>Посты по запросу {{ reg }}</h1>
+	{% for elem in listik %}
+	<img src="{% if 'http' in elem['pic'] %}{{ elem['pic'] }}{% else %}/static/images/{{ elem['pic'] }}{% endif %}" width='350' height='350'>
+<p>{{ elem['content'] }}</p>
+	{% endfor %}
+
+    <a href="post_form" class="button">Добавить пост</a>
+</form>
+</main>
+</body>
+</html>
